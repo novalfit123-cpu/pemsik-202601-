@@ -1,17 +1,37 @@
+import { NavLink, useNavigate } from "react-router-dom";
+
 export default function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    navigate("/login");
+  };
+
+  const navItemClass = ({ isActive }) =>
+    `block py-2 px-4 rounded transition-colors ${
+      isActive ? "bg-blue-700 font-bold" : "hover:bg-blue-500"
+    }`;
+
   return (
-    <aside className="bg-blue-800 text-white h-full transition-all duration-300 w-20 lg:w-64">
-      <div className="flex justify-between items-center p-4 border-b border-blue-700">
-        <span className="text-2xl font-bold hidden lg:block">Admin</span>
+    <aside className="w-64 bg-blue-600 text-white flex flex-col justify-between p-4">
+      <div>
+        <h1 className="text-xl font-bold mb-6">Admin Panel</h1>
+        <nav className="space-y-2">
+          <NavLink to="/admin/dashboard" className={navItemClass}>
+            Dashboard
+          </NavLink>
+          <NavLink to="/admin/mahasiswa" className={navItemClass}>
+            Data Mahasiswa
+          </NavLink>
+        </nav>
       </div>
-      <nav className="p-4 space-y-2">
-        <a href="#" className="flex items-center space-x-2 px-4 py-2 rounded hover:bg-blue-700">
-          <span className="menu-text hidden lg:inline">Dashboard</span>
-        </a>
-        <a href="#" className="flex items-center space-x-2 px-4 py-2 rounded bg-blue-700">
-          <span className="menu-text hidden lg:inline">Mahasiswa</span>
-        </a>
-      </nav>
+      <button 
+        onClick={handleLogout}
+        className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded mt-4"
+      >
+        Logout
+      </button>
     </aside>
   );
 }
