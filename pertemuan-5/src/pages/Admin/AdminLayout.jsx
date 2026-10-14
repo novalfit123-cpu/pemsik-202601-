@@ -1,15 +1,22 @@
-import React from "react";
-import Sidebar from "@/Pages/Admin/Components/Sidebar";
-import Header from "@/Pages/Admin/Components/Header";
-import Footer from "@/Pages/Admin/Components/Footer";
+import Sidebar from "@/pages/Admin/Components/Sidebar";
+import Header from "@/pages/Admin/Components/Header";
+import Footer from "@/pages/Admin/Components/Footer";
 
 const AdminLayout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar Samping */}
       <Sidebar />
-      <div className="flex flex-col flex-1">
+
+      {/* Konten Kanan */}
+      <div className="flex-1 flex flex-col">
         <Header />
-        <main className="flex-1 p-6 overflow-x-auto">{children}</main>
+        
+        {/* Area Konten Dinamis */}
+        <main className="p-6 flex-1">
+          {children}
+        </main>
+
         <Footer />
       </div>
     </div>

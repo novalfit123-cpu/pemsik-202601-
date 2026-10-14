@@ -1,7 +1,7 @@
-import AdminLayout from "@/pages/Admin/AdminLayout";
-import Card from "@/pages/Admin/Components/Card";
-import Heading from "@/pages/Admin/Components/Heading";
-import Button from "@/pages/Admin/Components/Button";
+import AdminLayout from "@/Pages/Admin/AdminLayout";
+import Card from "@/Pages/Admin/Components/Card";
+import Heading from "@/Pages/Admin/Components/Heading";
+import Button from "@/Pages/Admin/Components/Button";
 
 const Mahasiswa = () => {
   const handleEdit = (nama) => alert(`Edit data ${nama}`);
@@ -13,12 +13,8 @@ const Mahasiswa = () => {
     <AdminLayout>
       <Card>
         <div className="flex justify-between items-center mb-4">
-          <Heading as="h2" className="mb-0 text-left">
-            Daftar Mahasiswa
-          </Heading>
-          <Button onClick={() => alert("Buka modal tambah")}>
-            + Tambah Mahasiswa
-          </Button>
+          <Heading as="h2" className="mb-0 text-left">Daftar Mahasiswa</Heading>
+          <Button onClick={() => alert("Buka modal tambah")}>+ Tambah Mahasiswa</Button>
         </div>
 
         <table className="w-full text-sm text-gray-700">
