@@ -1,22 +1,17 @@
-import Sidebar from "@/pages/Admin/Components/Sidebar";
-import Header from "@/pages/Admin/Components/Header";
-import Footer from "@/pages/Admin/Components/Footer";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Components/Sidebar";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = () => {
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar Samping */}
+    <div className="flex h-screen bg-gray-50 overflow-hidden">
       <Sidebar />
-
-      {/* Konten Kanan */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
-        
-        {/* Area Konten Dinamis */}
-        <main className="p-6 flex-1">
-          {children}
+        <main className="flex-1 p-6 overflow-x-auto bg-gray-50">
+          <Outlet /> {/* Tempat halaman Mahasiswa atau Dashboard muncul */}
         </main>
-
         <Footer />
       </div>
     </div>
